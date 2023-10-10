@@ -116,7 +116,7 @@ const SearchHero: React.FC = (): JSX.Element => {
       <Grid
         mt="8"
         px={30}
-        gap="3"
+        gap={dataHero && '4'}
         templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
       >
         {dataHero?.map((e: IDataHero, idx: number) => (
