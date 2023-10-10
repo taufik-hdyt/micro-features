@@ -12,6 +12,7 @@ import {
   Input,
   InputGroup,
   InputRightAddon,
+  Select,
   Text,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
@@ -26,11 +27,12 @@ interface IDataHero {
   hero_specially: string;
 }
 const SearchHero: React.FC = (): JSX.Element => {
-  const [dataHero, setDataHero] = useState([]);
+  const [dataHero, setDataHero] = useState<IDataHero[] | null>([]);
+
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState("");
 
-  const fectchData = async (search: string) => {
+  const fectchDataHero = async (search: string) => {
     try {
       const dataHero = await axiosInstance.get(`/hero?heroName=${search}`);
       const data = dataHero?.data.hero;
@@ -39,10 +41,9 @@ const SearchHero: React.FC = (): JSX.Element => {
       console.log(error);
     }
   };
-
   useEffect(() => {
-    fectchData(searchResult);
-  }, [dataHero]);
+    fectchDataHero(searchResult);
+  }, [searchResult]);
 
   function handleSearch() {
     setSearchResult(searchQuery);
@@ -56,7 +57,7 @@ const SearchHero: React.FC = (): JSX.Element => {
       bgSize="cover"
       bgPos="center"
     >
-      <Link href='/'>
+      <Link href="/">
         <Button
           mt="3"
           ml={4}
@@ -67,8 +68,7 @@ const SearchHero: React.FC = (): JSX.Element => {
         >
           <ArrowBackIcon boxSize="10" color="white" /> Back
         </Button>
-        </Link>
-
+      </Link>
 
       <Container py={10} maxW="container.md">
         <Heading textAlign="center" fontSize="3xl" py={4} color="white">
