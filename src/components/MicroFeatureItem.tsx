@@ -1,7 +1,6 @@
 import { Box, Button, Stack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
-
 interface IProps{
   title: string
   subTitle: string

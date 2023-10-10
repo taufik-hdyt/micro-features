@@ -1,14 +1,9 @@
 import MicroFeatureItem from "@/components/microfeatureItem";
 import {
-  Box,
-  Button,
   Container,
-  HStack,
   Heading,
   Stack,
-  Text,
 } from "@chakra-ui/react";
-import Link from "next/link";
 
 const Home: React.FC = (): JSX.Element => {
   return (

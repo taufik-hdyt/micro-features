@@ -7,11 +7,9 @@ import {
   Flex,
   Grid,
   HStack,
-  Heading,
   Image,
   Input,
   InputGroup,
-  InputLeftAddon,
   InputRightAddon,
   Spinner,
   Text,
@@ -56,7 +54,7 @@ const SearchHero: React.FC = (): JSX.Element => {
   }
 
   function handleSearchEnter(e: KeyboardEvent<HTMLInputElement>) {
-    if(e.key === 'Enter'){
+    if (e.key === "Enter") {
       setSearchResult(searchQuery);
     }
   }
@@ -82,13 +80,19 @@ const SearchHero: React.FC = (): JSX.Element => {
         </Button>
       </Link>
 
-      <Container  maxW="container.md">
-        <Text fontWeight='bold' textAlign="center" fontSize="3xl" py={4} color="white">
+      <Container maxW="container.md">
+        <Text
+          fontWeight="bold"
+          textAlign="center"
+          fontSize="3xl"
+          py={4}
+          color="white"
+        >
           Nama Hero Mobile Legends
         </Text>
         <InputGroup size="md">
           {loading === true && (
-            <Box px='4'>
+            <Box px="4">
               <Spinner size="lg" color="white" />
             </Box>
           )}
@@ -96,11 +100,15 @@ const SearchHero: React.FC = (): JSX.Element => {
           <Input
             onChange={(e) => setSearchQuery(e.target.value)}
             color="white"
-            bg='blackAlpha.800'
+            bg="blackAlpha.800"
             placeholder="Search Hero"
             onKeyUp={handleSearchEnter}
           />
-          <InputRightAddon bg=" linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%) " onClick={handleSearch} cursor="pointer">
+          <InputRightAddon
+            bg=" linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%) "
+            onClick={handleSearch}
+            cursor="pointer"
+          >
             Search
           </InputRightAddon>
         </InputGroup>
@@ -111,14 +119,16 @@ const SearchHero: React.FC = (): JSX.Element => {
         )}
       </Box>
       <Grid
-      mt='8'
+        mt="8"
         px={30}
         gap="3"
         templateColumns="repeat(auto-fill, minmax(250px, 1fr))"
       >
         {dataHero?.map((e: IDataHero, idx: number) => (
           <Card key={idx} w="300px" bg="lightskyblue" p={4}>
-            <Text fontSize='3xl' fontWeight='bold' textAlign="center">{e.hero_name}</Text>
+            <Text fontSize="3xl" fontWeight="bold" textAlign="center">
+              {e.hero_name}
+            </Text>
             <HStack mt="4">
               <Text fontWeight="bold">Role</Text>
               <Flex gap="1">
