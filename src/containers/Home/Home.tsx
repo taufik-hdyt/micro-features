@@ -1,3 +1,4 @@
+import MicroFeatureItem from "@/components/microfeatureItem";
 import {
   Box,
   Button,
@@ -14,22 +15,11 @@ const Home: React.FC = (): JSX.Element => {
     <Container maxW="container.lg" shadow="lg" py="10" h="100vh" maxH="100vh">
       <Heading textAlign="center">Micro Features</Heading>
       <Stack mt="10">
-        <HStack
-          bg=" linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%) "
-          justify="space-between"
-          border="2px solid gray"
-          py={2}
-          px={4}
-          rounded="lg"
-        >
-          <Box>
-            <Text fontWeight="bold" fontSize='xl'>Search Hero Mobile Legends</Text>
-            <Text color='gray.500'>Next JS(Typescript) + Chakra UI, axios</Text>
-          </Box>
-          <Link href='/search-hero' target="_blank">
-          <Button colorScheme='facebook'>View Page</Button>
-          </Link>
-        </HStack>
+        <MicroFeatureItem
+          title="Search Hero Mobile Legends"
+          subTitle="Next JS(Typescript) + Chakra UI, axios"
+          url="search-hero"
+        />
       </Stack>
     </Container>
   );

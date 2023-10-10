@@ -1,8 +1,23 @@
 import SearchHero from "@/containers/SearchHero/SearchHero";
+
 import { NextPage } from "next";
-const SearchHeroPage: NextPage = ():JSX.Element => {
+import NextHead from "next/head";
+
+const SearchHeroPage: NextPage = (): JSX.Element => {
   return (
-      <SearchHero/>
-  )
-}
-export default SearchHeroPage
+    <>
+      <NextHead>
+        <meta charSet="UTF-8" />
+        <title>Mobile Legends</title>
+        <meta name="description" content="micro services" />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1"
+          key="viewport"
+        />
+      </NextHead>
+      <SearchHero />
+    </>
+  );
+};
+export default SearchHeroPage;
