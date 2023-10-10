@@ -1,6 +1,7 @@
 import { axiosInstance } from "@/lib/axios";
 import {
   Box,
+  Button,
   Card,
   Container,
   Flex,
@@ -11,10 +12,11 @@ import {
   Input,
   InputGroup,
   InputRightAddon,
-  Stack,
   Text,
 } from "@chakra-ui/react";
-import { KeyboardEvent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { ArrowBackIcon } from "@chakra-ui/icons";
+import Link from "next/link";
 
 interface IDataHero {
   hero_avatar: string;
@@ -27,6 +29,7 @@ const SearchHero: React.FC = (): JSX.Element => {
   const [dataHero, setDataHero] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState("");
+
   const fectchData = async (search: string) => {
     try {
       const dataHero = await axiosInstance.get(`/hero?heroName=${search}`);
@@ -36,6 +39,7 @@ const SearchHero: React.FC = (): JSX.Element => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     fectchData(searchResult);
   }, [dataHero]);
@@ -52,13 +56,29 @@ const SearchHero: React.FC = (): JSX.Element => {
       bgSize="cover"
       bgPos="center"
     >
-      <Container py={20} maxW="container.md">
+      <Link href='/'>
+        <Button
+          mt="3"
+          ml={4}
+          variant="unstyled"
+          color="white"
+          fontWeight="bold"
+          fontSize="xl"
+        >
+          <ArrowBackIcon boxSize="10" color="white" /> Back
+        </Button>
+        </Link>
+
+
+      <Container py={10} maxW="container.md">
+        <Heading textAlign="center" fontSize="3xl" py={4} color="white">
+          Nama Hero Mobile Legends
+        </Heading>
         <InputGroup size="md">
           <Input
             onChange={(e) => setSearchQuery(e.target.value)}
             color="white"
             placeholder="Search Hero"
-
           />
           <InputRightAddon onClick={handleSearch} cursor="pointer">
             Search
@@ -66,8 +86,8 @@ const SearchHero: React.FC = (): JSX.Element => {
         </InputGroup>
       </Container>
       {!dataHero?.length && (
-        <Box display='flex' justifyContent='center'>
-          <Image rounded='lg' src="notfound.jpg" alt="notfound" />
+        <Box display="flex" justifyContent="center">
+          <Image rounded="lg" src="notfound.jpg" alt="notfound" />
         </Box>
       )}
       <Grid
