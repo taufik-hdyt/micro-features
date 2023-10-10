@@ -23,8 +23,8 @@ const Home: React.FC = (): JSX.Element => {
           rounded="lg"
         >
           <Box>
-            <Text fontWeight="bold">Search Hero Mobile Legends</Text>
-            <Text>Next JS(Typescript)</Text>
+            <Text fontWeight="bold" fontSize='xl'>Search Hero Mobile Legends</Text>
+            <Text color='gray.500'>Next JS(Typescript) + Chakra UI, axios</Text>
           </Box>
           <Link href='/search-hero' target="_blank">
           <Button colorScheme='facebook'>View Page</Button>
