@@ -1,4 +1,5 @@
 import SearchHero from "@/containers/SearchHero/SearchHero";
+import { Box } from "@chakra-ui/react";
 
 import { NextPage } from "next";
 import NextHead from "next/head";
@@ -16,7 +17,13 @@ const SearchHeroPage: NextPage = (): JSX.Element => {
           key="viewport"
         />
       </NextHead>
-      <SearchHero />
+      <Box
+        bg="url(bgml.jpg)"
+        bgSize="cover"
+        bgPos="center"
+      >
+        <SearchHero />
+      </Box>
     </>
   );
 };

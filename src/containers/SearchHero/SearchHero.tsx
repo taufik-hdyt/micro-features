@@ -60,13 +60,7 @@ const SearchHero: React.FC = (): JSX.Element => {
   }
 
   return (
-    <Box
-      bg="url(bgml.jpg)"
-      h="100vh"
-      overflowY="auto"
-      bgSize="cover"
-      bgPos="center"
-    >
+    <Box h="100vh" overflowY="auto">
       <Link href="/">
         <Button
           mt="3"
@@ -80,13 +74,14 @@ const SearchHero: React.FC = (): JSX.Element => {
         </Button>
       </Link>
 
-      <Container maxW="container.md">
+      <Container maxW="container.sm">
         <Text
           fontWeight="bold"
           textAlign="center"
           fontSize="3xl"
           py={4}
           color="white"
+          css={{WebkitTextStroke: '1.5px', WebkitTextStrokeColor: 'black'}}
         >
           Nama Hero Mobile Legends
         </Text>
@@ -113,9 +108,9 @@ const SearchHero: React.FC = (): JSX.Element => {
           </InputRightAddon>
         </InputGroup>
       </Container>
-      <Box display="flex" justifyContent="center">
+      <Box mt="6" display="flex" justifyContent="center">
         {!dataHero?.length && loading === false && (
-          <Image rounded="lg" src="notfound.jpg" alt="notfound" />
+          <Image rounded="lg" src="notfound.png" alt="notfound" />
         )}
       </Box>
       <Grid
