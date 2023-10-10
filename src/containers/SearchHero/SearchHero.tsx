@@ -81,7 +81,7 @@ const SearchHero: React.FC = (): JSX.Element => {
           fontSize="3xl"
           py={4}
           color="white"
-          css={{WebkitTextStroke: '1.5px', WebkitTextStrokeColor: 'black'}}
+          css={{ WebkitTextStroke: "1.5px", WebkitTextStrokeColor: "black" }}
         >
           Nama Hero Mobile Legends
         </Text>
@@ -126,18 +126,30 @@ const SearchHero: React.FC = (): JSX.Element => {
             </Text>
             <HStack mt="4">
               <Text fontWeight="bold">Role</Text>
-              <Flex gap="1">
-                <Text fontWeight="semibold" px="3" bg="lightcoral" rounded="lg">
-                  {e.hero_role}
-                </Text>
+              <Flex gap="1" flexWrap='wrap'>
+              {e.hero_role.split(",").map((e) => (
+                  <Text
+                  key={e}
+                    fontWeight="semibold"
+                    px="3"
+                    bg="lightcoral"
+                    rounded="lg"
+                  >{e}</Text>
+                ))}
               </Flex>
             </HStack>
             <HStack mt="2">
               <Text fontWeight="bold">Specially</Text>
-              <Flex gap="1" flexWrap="nowrap">
-                <Text fontWeight="semibold" px="3" bg="lightcoral" rounded="lg">
-                  {e.hero_specially}
-                </Text>
+              <Flex gap="1" flexWrap="wrap">
+                {e.hero_specially.split(",").map((e) => (
+                  <Text
+                  key={e}
+                    fontWeight="semibold"
+                    px="3"
+                    bg="lightcoral"
+                    rounded="lg"
+                  >{e}</Text>
+                ))}
               </Flex>
             </HStack>
           </Card>
