@@ -1,5 +1,6 @@
 import { Box, Button, Stack, Text } from "@chakra-ui/react";
 import Link from "next/link";
+import {IconType} from 'react-icons'
 
 interface IProps{
   title: string
