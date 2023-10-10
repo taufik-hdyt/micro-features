@@ -11,11 +11,12 @@ import {
   Image,
   Input,
   InputGroup,
+  InputLeftAddon,
   InputRightAddon,
-  Select,
+  Spinner,
   Text,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { KeyboardEvent, useEffect, useState } from "react";
 import { ArrowBackIcon } from "@chakra-ui/icons";
 import Link from "next/link";
 
@@ -27,16 +28,19 @@ interface IDataHero {
   hero_specially: string;
 }
 const SearchHero: React.FC = (): JSX.Element => {
-  const [dataHero, setDataHero] = useState<IDataHero[] | null>([]);
+  const [dataHero, setDataHero] = useState<IDataHero[]>();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const fectchDataHero = async (search: string) => {
+    setLoading(true);
     try {
       const dataHero = await axiosInstance.get(`/hero?heroName=${search}`);
       const data = dataHero?.data.hero;
       setDataHero(data);
+      setLoading(false);
     } catch (error) {
       console.log(error);
     }
@@ -47,6 +51,11 @@ const SearchHero: React.FC = (): JSX.Element => {
 
   function handleSearch() {
     setSearchResult(searchQuery);
+  }
+  function handleSearchEnter(e: KeyboardEvent<HTMLInputElement>) {
+    if(e.key === 'Enter'){
+      setSearchResult(searchQuery);
+    }
   }
 
   return (
@@ -75,21 +84,28 @@ const SearchHero: React.FC = (): JSX.Element => {
           Nama Hero Mobile Legends
         </Heading>
         <InputGroup size="md">
+          {loading === true && (
+            <Box px='4'>
+              <Spinner size="lg" color="white" />
+            </Box>
+          )}
+
           <Input
             onChange={(e) => setSearchQuery(e.target.value)}
             color="white"
             placeholder="Search Hero"
+            onKeyUp={handleSearchEnter}
           />
           <InputRightAddon onClick={handleSearch} cursor="pointer">
             Search
           </InputRightAddon>
         </InputGroup>
       </Container>
-      {!dataHero?.length && (
-        <Box display="flex" justifyContent="center">
+      <Box display="flex" justifyContent="center">
+        {!dataHero?.length && loading === false && (
           <Image rounded="lg" src="notfound.jpg" alt="notfound" />
-        </Box>
-      )}
+        )}
+      </Box>
       <Grid
         px={30}
         gap="3"

@@ -1,5 +1,4 @@
 import Home from "@/containers/Home/Home";
-import { Box } from "@chakra-ui/react";
 import { NextPage } from "next";
 
 
