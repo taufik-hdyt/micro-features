@@ -13,15 +13,7 @@ import Link from "next/link";
 import { useState } from "react";
 import Footer from "@/components/Footer";
 
-interface IDataMeme {
-  box_count: number
-  captions: number
-  height:number
-  id: string
-  name: string
-  url: string
-  width:number
-}
+
 const MemeGenerator: React.FC = (): JSX.Element => {
   const memes = [
     "meme/meme1.jpg",
