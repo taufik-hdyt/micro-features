@@ -11,8 +11,19 @@ import {
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { useState } from "react";
+import Footer from "@/components/Footer";
 
+interface IDataMeme {
+  box_count: number
+  captions: number
+  height:number
+  id: string
+  name: string
+  url: string
+  width:number
+}
 const MemeGenerator: React.FC = (): JSX.Element => {
+  const [dataMemes, setDataMemes] = useState<IDataMeme[] | null>([]);
   const memes = [
     "meme/meme1.jpg",
     "meme/meme2.jpg",
@@ -30,7 +41,7 @@ const MemeGenerator: React.FC = (): JSX.Element => {
   function handleGenerateLoad() {
     const random = Math.floor(Math.random() * memes.length);
     setSelectedImageIndex(random);
-    setLoad(false)
+    setLoad(false);
   }
   return (
     <Box>
@@ -70,7 +81,7 @@ const MemeGenerator: React.FC = (): JSX.Element => {
         </HStack>
 
         <Flex
-        display={load ? 'flex': 'none'}
+          display={load ? "flex" : "none"}
           fontSize="xl"
           color="white"
           align="center"
@@ -80,7 +91,7 @@ const MemeGenerator: React.FC = (): JSX.Element => {
         >
           Press the{" "}
           <Button
-          onClick={handleGenerateLoad}
+            onClick={handleGenerateLoad}
             color="white"
             bg="linear-gradient(to top, #30cfd0 0%, #330867 100%)"
           >
@@ -89,7 +100,7 @@ const MemeGenerator: React.FC = (): JSX.Element => {
           Button to get random memes!
         </Flex>
 
-        <Center mt='20' display={load ? 'none' : 'flex'}>
+        <Center mt="20" display={load ? "none" : "flex"}>
           <Image
             w="400px"
             h="300px"
@@ -99,19 +110,7 @@ const MemeGenerator: React.FC = (): JSX.Element => {
         </Center>
       </Container>
 
-      <Flex
-        fontWeight="bold"
-        bg="whiteAlpha.400"
-        px={4}
-        rounded="lg"
-        pos="fixed"
-        bottom={3}
-        left="50%"
-        transform="translate(-50%, -50%)"
-        gap={1}
-      >
-        Made By <Text color="blackAlpha.500">Taufik H 💀</Text>
-      </Flex>
+      <Footer />
     </Box>
   );
 };

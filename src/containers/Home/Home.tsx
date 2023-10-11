@@ -18,14 +18,19 @@ const Home: React.FC = (): JSX.Element => {
       </Heading>
       <Stack mt="10">
         <MicroFeatureItem
-          title="Search Hero Mobile Legends"
-          subTitle="Next JS(Typescript) + Chakra UI, axios"
+          title="Search Hero Mobile Legends 🎮"
+          subTitle="Next JS(Typescript) + Chakra UI, Axios, Function, Logic, Conditional Rendering"
           url="search-hero"
         />
         <MicroFeatureItem
           title="Meme Generator💀"
-          subTitle="Next JS(Typescript) + Chakra UI"
+          subTitle="Next JS(Typescript) + Chakra UI, Function, Logic, Conditional Rendering"
           url="meme-generator"
+        />
+        <MicroFeatureItem
+          title="Currency Converter 💰"
+          subTitle="Next JS(Typescript) + Chakra UI, Function, Logic, Conditional Rendering"
+          url="currency-converter"
         />
       </Stack>
     </Container>
