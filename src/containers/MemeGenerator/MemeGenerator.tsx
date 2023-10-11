@@ -23,15 +23,18 @@ interface IDataMeme {
   width:number
 }
 const MemeGenerator: React.FC = (): JSX.Element => {
-  const [dataMemes, setDataMemes] = useState<IDataMeme[] | null>([]);
   const memes = [
     "meme/meme1.jpg",
     "meme/meme2.jpg",
     "meme/meme3.jpg",
     "meme/meme4.jpg",
     "meme/meme5.jpg",
+    "https://i.imgflip.com/30b1gx.jpg",
+    "https://i.imgflip.com/1g8my4.jpg",
+    "https://i.imgflip.com/261o3j.jpg",
+    "https://i.imgflip.com/3lmzyx.jpg",
+    "https://i.imgflip.com/3oevdk.jpg",
   ];
-
   const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   const [load, setLoad] = useState(true);
   function handleGenerate() {
