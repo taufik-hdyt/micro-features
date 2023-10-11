@@ -1,7 +1,6 @@
 import MicroFeatureItem from "@/components/MicroFeatureItem";
-import {  Container, Heading, Stack } from "@chakra-ui/react";
+import { Container, Heading, Stack } from "@chakra-ui/react";
 import { RxMix } from "react-icons/rx";
-
 
 const Home: React.FC = (): JSX.Element => {
   return (
@@ -22,6 +21,11 @@ const Home: React.FC = (): JSX.Element => {
           title="Search Hero Mobile Legends"
           subTitle="Next JS(Typescript) + Chakra UI, axios"
           url="search-hero"
+        />
+        <MicroFeatureItem
+          title="Meme Generator💀"
+          subTitle="Next JS(Typescript) + Chakra UI"
+          url="meme-generator"
         />
       </Stack>
     </Container>

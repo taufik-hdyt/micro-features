@@ -31,6 +31,7 @@ const SearchHero: React.FC = (): JSX.Element => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResult, setSearchResult] = useState("");
+
   const [loading, setLoading] = useState(false);
 
   const fectchDataHero = async (search: string) => {
